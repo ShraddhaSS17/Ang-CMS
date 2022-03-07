@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-md-4 register-course">
+      <!-- form card register -->
+      <div class="card-header">
+          <h3 class="mb-0">Edit course record</h3>
+        </div>
+      <div class="card-body">
+        <form [formGroup]="courseeditForm">
+          <div class="form-group">
+            <label for="inputName">Name</label>
+            <input class="form-control" type="text" formControlName="name">
+            <!-- error -->
+            <!-- <div class="invalid-feedback" *ngIf="submitted && myForm['name'].errors?.['required']">
+              Name is required.
+            </div> -->
+          </div>
+          <div *ngIf="courseeditForm.controls['name'].invalid && (courseeditForm.controls['name'].dirty || courseeditForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="courseeditForm.controls['name'].errors?.['required']">
+              Course Name is required.
+            </div>
+          </div>
+
+  
+       
+  
+          <div class="form-group">
+            <label for="inputPassword3">Degree</label>
+            <select class="custom-select form-control" (change)="updateProfile($event)"
+              formControlName="cat">
+              <option value="">Choose...</option>
+              <option *ngFor="let coursedata of coursedata" value="{{coursedata}}">{{coursedata}}
+              </option>
+            </select>
+            <!-- error -->
+            <div *ngIf="courseeditForm.controls['cat'].invalid && (courseeditForm.controls['cat'].dirty || courseeditForm.controls['cat'].touched)" class="alert alert-danger">
+            <div *ngIf="courseeditForm.controls['cat'].errors?.['required']">
+              Choose category.
+            </div>
+            </div>
+          </div>
+
+  
+          <div class="form-group">
+            <label for="inputVerify3">Course Duration</label>
+            <input class="form-control" type="text" formControlName="cd">
+            <!-- error -->
+            
+            
+          </div>
+  
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit" (click)="onSubmit()"   >Update</button>
+          </div>
+        </form>
+  
+      </div>
+    </div><!-- form card register -->
+  </div>

@@ -1,0 +1,68 @@
+<app-sidenav></app-sidenav>
+<br>
+
+  
+<div class="row justify-content-center">
+    <div class="col-md-4 register-employee  w3-card">
+      <!-- form card register -->
+      <h2 style="text-align:center">Create Course</h2>
+      <div class="card-body">
+        <form [formGroup]="courseForm">
+          <div class="form-group">
+            <label for="inputName">Course Name</label>
+            <input class="form-control" type="text" formControlName="name">
+            <!-- error -->
+            <!-- <div class="invalid-feedback" *ngIf="submitted && myForm['name'].errors?.['required']">
+              Name is required.
+            </div> -->
+          </div>
+          <div *ngIf="courseForm.controls['name'].invalid && (courseForm.controls['name'].dirty || courseForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="courseForm.controls['name'].errors?.['required']">
+              Course Name is required.
+            </div>
+          </div>
+
+  
+      
+  
+          <div class="form-group">
+            <label for="inputPassword3">Course Category </label>
+            <select class="custom-select form-control" (change)="updateProfile($event)"
+              formControlName="cat">
+              <option value="">Choose...</option>
+              <option *ngFor="let coursedata of coursedata" value="{{coursedata}}">{{coursedata}}
+              </option>
+            </select>
+            <!-- error -->
+            <div *ngIf="courseForm.controls['cat'].invalid && (courseForm.controls['cat'].dirty || courseForm.controls['cat'].touched)" class="alert alert-danger">
+            <div *ngIf="courseForm.controls['cat'].errors?.['required']">
+              Choose Course
+            </div>
+            </div>
+          </div>
+
+          
+  
+          <div class="form-group">
+            <label for="inputVerify3"> Course Duration</label>
+            <input class="form-control" type="text" formControlName="cd">
+            <!-- error -->
+            <div *ngIf="courseForm.controls['cd'].invalid && (courseForm.controls['cd'].dirty || courseForm.controls['cd'].touched)" class="alert alert-danger">
+                <div *ngIf="courseForm.controls['cd'].errors?.['required']">
+                  Course Duration is required.
+                </div>
+              </div>
+          </div>
+         
+       
+        
+  
+          <div class="form-group">
+            <button class="btn btn-info btn-lg btn-block" type="submit" (click)="onSubmit()"  >Create Course</button>
+          </div>
+        </form>
+  
+      </div>
+    </div><!-- form card register -->
+  </div>
+

@@ -1,0 +1,102 @@
+
+<br>
+
+
+
+<div class="container-fluid" style="background-image:url('../assets/ct.png') ">
+<br><br> <br><br> 
+    <h1 style="color:white ; font-weight: bolder;margin: 50px;">Contact Us
+    <br><br><button class="btn btn">Decades of Experience in Accomodating students needs    </button></h1>
+    <br>
+    
+    <br><br><br>
+    
+    </div>
+    
+<div class="container">
+    <br>
+<h2><b>Overview</b></h2>
+<hr>
+<h4>We understand that sending your child off to college for the first time is not easy.</h4>
+<br>
+<h4>With decades of expertise in nurturing young minds, we ensure that your child feels right at home from the moment he or she steps onto our campus.</h4>
+<br>
+<h4>The world-renowned international university town of Manipal is the education destination of students from 59 countries who study and live together in perfect harmony.</h4>
+</div>
+
+
+<br>
+<div class="container-fluid" style="background-image:url('../assets/bg2.jpg') ">
+<br><br><br><br><br><br>
+<h1 style="color:white ; font-weight: bolder;margin: 50px;">Global Village
+<br><br><button class="btn btn">Expolore the collge</button></h1>
+<br>
+
+<br><br><br>
+
+</div>
+
+
+
+<br>
+<section id="contact">
+<div class="container">
+<div class="row">
+    <div class="col-md-6">
+        <div class="container w3-card">
+            <iframe style="width:100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30712454.791114908!2d64.38160358214111!3d20.00520073298046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1643027761961!5m2!1sen!2sin" width="520" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+<div class="col-md-6 w3-card">
+    <br>
+    <h2 style="text-align:center">Give Us Your Details </h2>
+    <form [formGroup]="contactForm">
+        <label style="color:gray"for="name">
+            Full Name
+        </label>
+        <input type="text" placeholder="Full Name" formControlName="name" class="form-control col-md-9"  >
+        <div *ngIf="contactForm.controls['name'].invalid && (contactForm.controls['name'].dirty || contactForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="contactForm.controls['name'].errors?.['required']">
+               Name is required.
+            </div>
+          </div>
+        <br>
+        <label style="color:gray" >E-Mail Id</label>
+    <input type="text" placeholder="abc@gmail.com" formControlName="email" class="form-control col-md-9" >
+    <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="contactForm.controls['email'].errors?.['required']">
+          Email is required.
+        </div>
+      </div>
+    <br>
+    <label style="color:gray">Mobile Number</label>
+   <input type="text" placeholder="98XXXXXXX6" formControlName="mobile" class="form-control col-md-9" maxlength="10"  > 
+   <div *ngIf="contactForm.controls['mobile'].invalid && (contactForm.controls['mobile'].dirty || contactForm.controls['mobile'].touched)" class="alert alert-danger">
+    <div *ngIf="contactForm.controls['mobile'].errors?.['required']">
+    Mobile number is required.
+    </div>
+  </div>
+   <br>
+
+</form>
+
+<button style="background-color:rgb(27, 172, 230);
+border: none;
+padding:10px; color:white" (click)="onSubmit()" >Send Message</button>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+<br>
+
+<br>
+<section>
+
+
+<br>
