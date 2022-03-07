@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-md-4 register-student">
+      <!-- form card register -->
+      <div class="card-header">
+          <h3 class="mb-0">Edit Student record</h3>
+        </div>
+      <div class="card-body">
+        <form [formGroup]="steditForm">
+          <div class="form-group">
+            <label for="inputName">Name</label>
+            <input class="form-control" type="text" formControlName="name">
+            <!-- error -->
+            <!-- <div class="invalid-feedback" *ngIf="submitted && myForm['name'].errors?.['required']">
+              Name is required.
+            </div> -->
+          </div>
+          <div *ngIf="steditForm.controls['name'].invalid && (steditForm.controls['name'].dirty || steditForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="steditForm.controls['name'].errors?.['required']">
+              Person Name is required.
+            </div>
+          </div>
+
+  
+          <div class="form-group">
+            <label for="inputEmail3">Email</label>
+            <input class="form-control" type="text" formControlName="email">
+          </div>
+            <!-- error -->
+            <div *ngIf="steditForm.controls['email'].invalid && (steditForm.controls['email'].dirty || steditForm.controls['email'].touched)" class="alert alert-danger">
+            <div *ngIf="steditForm.controls['email'].errors?.['required']">
+              Enter your email.
+            </div>
+            <div *ngIf="steditForm.controls['email'].errors?.['pattern']">
+              Enter valid email.
+            </div>
+            </div>
+         
+  
+          <div class="form-group">
+            <label for="inputPassword3">Course</label>
+            <select class="custom-select form-control" (change)="updateProfile($event)"
+              formControlName="course">
+              <option value="">Choose...</option>
+              <option *ngFor="let courseList of courseList" value="{{courseList}}">{{courseList}}
+              </option>
+            </select>
+            <!-- error -->
+            <div *ngIf="steditForm.controls['course'].invalid && (steditForm.controls['course'].dirty || steditForm.controls['course'].touched)" class="alert alert-danger">
+            <div *ngIf="steditForm.controls['course'].errors?.['required']">
+              Choose Course.
+            </div>
+            </div>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="inputPassword4">college</label>
+            <select class="custom-select form-control" (change)="updateProfile1($event)"
+              formControlName="college">
+              <option value="">Choose...</option>
+              <option *ngFor="let collegedata of collegedata" value="{{collegedata}}">{{collegedata}}
+              </option>
+            </select>
+            <!-- error -->
+            <!-- <div *ngIf="steditForm.controls['college'].invalid && (steditForm.controls['college'].dirty || steditForm.controls['college'].touched)" class="alert alert-danger">
+            <div *ngIf="steditForm.controls['college'].errors?.['required']">
+              Choose college.
+            </div>
+            </div>
+          </div> -->
+  
+          <div class="form-group">
+            <label for="inputVerify3">Mobile No</label>
+            <input class="form-control" type="text" formControlName="phoneNumber">
+            <!-- error -->
+            <div *ngIf="steditForm.controls['phoneNumber'].invalid && (steditForm.controls['phoneNumber'].dirty || steditForm.controls['phoneNumber'].touched)" class="alert alert-danger">
+            <div *ngIf="steditForm.controls['phoneNumber'].errors?.['required']">
+              Enter your phone number.
+            </div>
+            <div *ngIf="steditForm.controls['phoneNumber'].errors?.['pattern']">
+              Enter Numbers Only
+            </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit" (click)="onSubmit()"   >Update</button>
+          </div>
+        </form>
+  
+      </div>
+    </div><!-- form card register -->
+  </div>

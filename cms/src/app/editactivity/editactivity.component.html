@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-md-4 register-student">
+      <!-- form card register -->
+      <div class="card-header">
+          <h3 class="mb-0">Edit Student record</h3>
+        </div>
+      <div class="card-body">
+        <form [formGroup]="activityeditForm">
+          <div class="form-group">
+            <label for="inputName">Activity Name</label>
+            <input class="form-control" type="text" formControlName="name">
+       
+          </div>
+          <div *ngIf="activityeditForm.controls['name'].invalid && (activityeditForm.controls['name'].dirty || activityeditForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="activityeditForm.controls['name'].errors?.['required']">
+              Activity Name is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputName">Activity Description</label>
+            <input class="form-control" type="text" formControlName="description">
+       
+          </div>
+          <div *ngIf="activityeditForm.controls['description'].invalid && (activityeditForm.controls['description'].dirty || activityeditForm.controls['description'].touched)" class="alert alert-danger">
+            <div *ngIf="activityeditForm.controls['description'].errors?.['required']">
+              Activity description is required.
+            </div>
+          </div>
+  
+          
+          <div class="form-group">
+            <label for="inputName">Activity Image</label>
+            <input class="form-control" type="file" formControlName="imagePath">
+       
+          </div>
+          <div *ngIf="activityeditForm.controls['imagePath'].invalid && (activityeditForm.controls['imagePath'].dirty || activityeditForm.controls['imagePath'].touched)" class="alert alert-danger">
+            <div *ngIf="activityeditForm.controls['imagePath'].errors?.['required']">
+              Activity Image is required.
+            </div>
+          </div>
+         
+            
+          <div class="form-group">
+            <label for="inputName">Activity Date</label>
+            <input class="form-control" type="date" formControlName="date">
+       
+          </div>
+          <div *ngIf="activityeditForm.controls['date'].invalid && (activityeditForm.controls['date'].dirty || activityeditForm.controls['date'].touched)" class="alert alert-danger">
+            <div *ngIf="activityeditForm.controls['date'].errors?.['required']">
+              Activity Date is required.
+            </div>
+          </div>
+         
+  
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit" (click)="onSubmit()"   >Update</button>
+          </div>
+        </form>
+  
+      </div>
+    </div><!-- form card register -->
+  </div>
