@@ -5,15 +5,17 @@ import { catchError, of, pipe, Subject, switchMap, throwError } from 'rxjs';
 import { __param } from 'tslib';
   // import { User } from './college';
 export interface User{
-  name:string;
-  email:String;
-  password:string;
-  _id:string;
+  // name:string;
+  // email:String;
+  // password:string;
+  // _id:string;
+  token:string;
 }
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  isuserLoggedin = false;
    private user$= new Subject<User>();
  baseUri:string = 'http://127.0.0.1:5000'; // Backend URL (Server)
 
@@ -22,8 +24,8 @@ export class AuthService {
   login(data:any){
     //const logincred= {email, password};
     console.log('login cred',data);
-    return this.httpclient.post<User>(`${this.baseUri}/login`,data).pipe(
-      catchError(this.errorMgmt)
+    return this.httpclient.post<{token:string;}>(`${this.baseUri}/login`,data).pipe(
+      catchError(this.errorMgmt)  // return it will go back to ts
     )//,pipe(
       // switchMap (foundUser =>{
       //     //  this.setUser(foundUser);
@@ -37,7 +39,6 @@ export class AuthService {
 // })
 //     )
   }
-
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

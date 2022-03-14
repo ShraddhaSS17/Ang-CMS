@@ -16,6 +16,7 @@ export class StudviewComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ 
   readactivity(){
     this.activityservice.getactivitys().subscribe((data) => {
      this.activity = data;

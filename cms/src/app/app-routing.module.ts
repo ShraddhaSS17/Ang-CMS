@@ -39,15 +39,10 @@ const routes: Routes = [
 {path:'viewcontact',component:ViewcontactComponent},
 {path:'editcourse/:id',component:EditcourseComponent,canActivate:[AuthGuard,RoleGuard]},
 {path:'viewcourse',component:ViewcourseComponent},
-
 {path:'createactivity',component:CreateactivityComponent,canActivate:[AuthGuard,RoleGuard]},
 {path:'editactivity/:id',component:EditactivityComponent,canActivate:[AuthGuard,RoleGuard]},
 {path:'viewactivity',component:ViewactivityComponent},
-
 {path:'createticket',component:CreateticketComponent,canActivate:[AuthGuard]},
-
-
-
 {path:'studview',component:StudviewComponent},
 {path:'',redirectTo:'/home',pathMatch:"full"}
 ];

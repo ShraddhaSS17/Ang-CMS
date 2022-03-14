@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-
+import { HeaderComponent } from '../header/header.component'; 
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
@@ -33,16 +33,18 @@ export class LoginComponent implements OnInit {
     this.authservice.login(this.loginForm.value).subscribe(
       (res) => {
         if(res!=null){
-          console.log('Logged in successfully!')         
+          console.log('Logged in successfully!') 
+          this.authservice.isuserLoggedin=true;   //navbar enable disable
+              // this.header.isuserLoggedin=true;
           if(this.email=="admin@dev.com" ){
       
             this.ngZone.run(() => this.router.navigateByUrl('/admin'))
-            localStorage.setItem('userId',res._id);
+            localStorage.setItem('userId',res.token);
             localStorage.setItem('userType','admin');
             }
             else{
         
-              localStorage.setItem('userId',res._id);
+              localStorage.setItem('userId',res.token);
               localStorage.setItem('userType','endUser');
               this.ngZone.run(() => this.router.navigateByUrl('/studview'))
           }

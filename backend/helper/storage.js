@@ -38,7 +38,7 @@ var storage = multer.diskStorage({
       cb(null, file.originalname)
     }
 })
-var upload = multer({ storage: storage })
+var upload = multer({ storage: storage }).single('file')
 
 /*
 app.use('/a',express.static('/b'));
@@ -48,11 +48,12 @@ And make them accessible through http://localhost:3000/a.
 // app.use(express.static(__dirname + '/public'));
 // app.use('/uploads', express.static('uploads'));
 
-app.post('/upload-image', upload.single('file'), function (req, res, next) {//
+app.post('/api/upload-image', upload.single('file'), function (req, res, next) {//
   //console.log(JSON.stringify(req.file))
   var response = 'Image uploaded successfully'
+  console.log(req,file)
   return res.send(response)
-})
+})  
 
 // app.post('/profile-upload-multiple', upload.array('profile-files', 12), function (req, res, next) {
 //     // req.files is array of `profile-files` files

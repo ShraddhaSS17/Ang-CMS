@@ -1,16 +1,6 @@
 var mongoose = require('mongoose'),
-  
+  contact =mongoose.model('contact');
 
- contact =mongoose.model('contact');
-
-
-exports.listAlllogin = function(req, res) {
-  contact.find({}, function(err, contact) {
-    if (err)
-      res.send(err);
-    res.json(contact);
-  });
-};
 exports.listAllcontact = function(req, res) {
   contact.find({}, function(err, contact) {
     if (err)

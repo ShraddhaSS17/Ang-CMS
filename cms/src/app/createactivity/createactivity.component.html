@@ -7,7 +7,7 @@
       <!-- form card register -->
 <h2 style="text-align:center">Create Activity</h2>
       <div class="card-body">
-        <form [formGroup]="activityForm" action="/upload-image" method="post"  enctype="multipart/form-data">
+        <form [formGroup]="activityForm" action="/upload-image" method="POST"  enctype="multipart/form-data">
             <div *ngIf="activities.length > 0">
                 <div *ngFor="let activity of activities" class="activity">
                     <img [src]="activity.imagePath">

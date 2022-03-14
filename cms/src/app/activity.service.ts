@@ -31,18 +31,15 @@ getActvity(){
  getactivityStream(){
    return this.activities$.asObservable();
  }
-  upload(file: File): Observable<HttpEvent<any>> {
-    const formData: FormData = new FormData();
-    formData.append('file', file);
-    const req = new HttpRequest('POST', `${this.baseUri}/upload`, formData, {
-      reportProgress: true,
-      responseType: 'json'
-    });
-    return this.http.request(req);
-  }
-  getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUri}/files`);
-  }
+  // upload(file: File): Observable<HttpEvent<any>> {
+  //   const formData: FormData = new FormData();
+  //   formData.append('file', file);
+  //   const req = new HttpRequest('POST', `${this.baseUri}/upload`, formData, {
+  //     reportProgress: true,
+  //     responseType: 'json'
+  //   });
+  //   return this.http.request(req);
+  // }
 
 
 
@@ -73,7 +70,7 @@ getActvity(){
 
 // Get activity
 getactivity(id: any): Observable<any> {
-  let url = `${this.baseUri}/activity/${id}`;
+  let url = `${this.baseUri}/activity/${id}`; 
   return this.http.get(url, {headers: this.headers}).pipe(
     map((res: any) => {
       return res || {}

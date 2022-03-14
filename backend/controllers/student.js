@@ -1,12 +1,6 @@
 var mongoose = require('mongoose'),
 student =mongoose.model('student');
-exports.listAlllogin = function(req, res) {
-  student.find({}, function(err, student) {
-    if (err)
-      res.send(err);
-    res.json(student);
-  });
-};
+
 exports.listAllstudent = function(req, res) {
   student.find({}, function(err, student) {
     if (err)

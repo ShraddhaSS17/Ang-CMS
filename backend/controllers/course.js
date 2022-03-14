@@ -1,20 +1,8 @@
 var mongoose = require('mongoose'),
   
-
- course =mongoose.model('course');
-
+course =mongoose.model('course');
 
 
-
-
-
-exports.listAlllogin = function(req, res) {
-  course.find({}, function(err, course) {
-    if (err)
-      res.send(err);
-    res.json(course);
-  });
-};
 exports.listAllcourse = function(req, res) {
   //console.log("reading course");
   course.find({}, function(err, course) {

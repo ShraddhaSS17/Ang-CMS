@@ -1,5 +1,5 @@
 var express = require('express'),
-   app = express(),
+   app = express(),//
    port = process.env.PORT || 5000,
    mongoose = require('mongoose'),
    cors = require('cors'),
@@ -11,6 +11,7 @@ var express = require('express'),
    contact=require('./models/contact')
 
 const multer  = require('multer')
+var path= require('path')
 
 
 // Connecting with mongo db
@@ -46,6 +47,7 @@ AuthRoute(app);
 app.listen(port, () => {
   console.log('Connected to port ' + port)
 })
+app.use('/images',express.static(path.join('images')))
 
 // Find 404 and hand over to error handler
 app.use((req, res, next) => {
@@ -64,8 +66,8 @@ const upload = multer({ dest: './images' })
 
 //const app = express()
 
-app.post('/upload-image', upload.single('avatar'), function (req, res, next) {
-   console.log("inside upload-image")
+// app.post('/upload-image', upload.single('imagedata'), function (req, res, next) {
+//    console.log("inside upload-image")
   // req.file is the `avatar` file
   // req.body will hold the text fields, if there were any
-})
+// })

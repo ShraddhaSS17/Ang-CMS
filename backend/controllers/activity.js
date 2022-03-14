@@ -1,19 +1,15 @@
 var mongoose = require('mongoose'),
   activity =mongoose.model('activity');
   
-exports.listAlllogin = function(req, res) {
-  activity.find({}, function(err, activity) {
-    if (err)
-      res.send(err);
-    res.json(activity);
-  });
-};
+
 exports.listAllactivity = function(req, res) {
   activity.find({}, function(err, activity) {
     if (err)
       res.send(err);
+      //console("errin")
     res.json(activity);
   });
+  console.log("outerr")
 };
 exports.createactivity = function(req, res) {
   var act = new activity(req.body);

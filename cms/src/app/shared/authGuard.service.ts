@@ -8,6 +8,6 @@ export class AuthGuardService {
   constructor() { }
 
   IsLoggedIn(){
-    return !!localStorage.getItem('userId');
+    return !!localStorage.getItem('userId');  //if userid found means user is loggedin
   }
 }
